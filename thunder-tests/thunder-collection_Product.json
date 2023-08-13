@@ -1,0 +1,23 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Product",
+    "dateExported": "2023-08-13T22:41:25.342Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "04b971d3-fdf0-4f47-9902-207bf4a5e7ad",
+            "colId": "bcbc0cf9-c12b-479e-a73d-51d6450d098c",
+            "containerId": "",
+            "name": "index",
+            "url": "localhost:4000",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-08-13T22:28:20.079Z",
+            "modified": "2023-08-13T22:28:29.911Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
