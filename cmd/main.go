@@ -5,33 +5,45 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
+	products "product/pkg/handlers"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
 
-	port := "4000"
+	router := gin.Default()
+	router.POST("/pessoas", products.PostProducts)
+	router.GET("/pessoas/:id", products.GetByIdProducts)
+	router.GET("/pessoas", products.GetProducts)
 
+	var port string = getenv("PORT", "4000")
 	message := fmt.Sprintf("API is running on port %s!", port)
 
-	http.HandleFunc(
-		"/",
-		func(res http.ResponseWriter, req *http.Request) {
+	router.Run(fmt.Sprintf("localhost:%s", port))
+	log.Println(message)
 
+	router.GET(
+		"/",
+		func(c *gin.Context) {
 			responseMap := map[string]string{"itsRunning": message}
 
 			json, err := json.Marshal(responseMap)
 
 			if err != nil {
-				http.Error(res, err.Error(), http.StatusInternalServerError)
+				c.IndentedJSON(http.StatusInternalServerError, err.Error())
 				return
 			}
 
-			res.WriteHeader(200)
-			res.Header().Set("Content-Type", "application/json")
-			res.Write(json)
-		},
-	)
+			c.IndentedJSON(http.StatusOK, json)
+		})
+}
 
-	log.Println(message)
-	http.ListenAndServe(":"+port, nil)
+func getenv(key, fallback string) string {
+	value := os.Getenv(key)
+	if len(value) == 0 {
+		return fallback
+	}
+	return value
 }
