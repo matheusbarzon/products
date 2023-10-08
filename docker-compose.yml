@@ -1,0 +1,48 @@
+version: '3.1'
+
+# 1.5 CPUs e 3.0GB
+services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASS=${MYSQL_PASS}
+    # volumes:
+    #   - my-datavolume:/var/lib/mysql
+    deploy:
+      resources:
+        limits:
+          cpus: "0.75"
+          memory: "1.5GB"
+
+  api1:
+    build: ./
+    hostname: api1
+    depends_on:
+      - db
+    environment:
+      - PORT=${API_PORT}
+    ports:
+      - "4000:4000"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: '0.5GB'
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+    ports:
+      - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
