@@ -1,23 +1,29 @@
 package products
 
 import (
+	"fmt"
 	"net/http"
 
-	"github.com/gin-gonic/gin"
+	"github.com/gorilla/mux"
 )
 
-func PostProducts(c *gin.Context) {
-	c.IndentedJSON(http.StatusCreated, "")
+func PostProducts(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusCreated)
+	fmt.Fprintf(w, "Produto criado com sucesso!")
 }
 
-func GetByIdProducts(c *gin.Context) {
-	id := c.Param("id")
+func GetByIdProducts(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	id, err := vars["id"]
+	if err {
+		fmt.Println("id is missing in parameters")
+	}
 
-	c.IndentedJSON(http.StatusOK, id)
+	w.WriteHeader(http.StatusCreated)
+	fmt.Fprintf(w, "Listagem do produto com `id` %s!", id)
 }
 
-func GetProducts(c *gin.Context) {
-	qryParam := c.Query("t")
-
-	c.IndentedJSON(http.StatusOK, qryParam)
+func GetProducts(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+	fmt.Fprintf(w, "Listagem de produtos!")
 }
