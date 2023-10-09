@@ -1,0 +1,124 @@
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2023-10-09T00:07:19.132Z",
+    "__export_source": "insomnia.desktop.app:v2023.5.7",
+    "resources": [
+        {
+            "_id": "req_4dfeeea379c046f887ed0ba86b46d8f9",
+            "parentId": "wrk_2085c12e20d9401f89e6365c083b7776",
+            "modified": 1696809952415,
+            "created": 1696809904021,
+            "url": "http://localhost:9999/products",
+            "name": "products",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "Insomnia/2023.5.7"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1696809904021,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "wrk_2085c12e20d9401f89e6365c083b7776",
+            "parentId": null,
+            "modified": 1696809897316,
+            "created": 1696809897316,
+            "name": "Products",
+            "description": "",
+            "scope": "collection",
+            "_type": "workspace"
+        },
+        {
+            "_id": "req_63a73dcd875b46b4b5a4f145d5ddfd2d",
+            "parentId": "wrk_2085c12e20d9401f89e6365c083b7776",
+            "modified": 1696809966940,
+            "created": 1696809962688,
+            "url": "http://localhost:9999/products/55",
+            "name": "products/{id}",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "Insomnia/2023.5.7"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1696809903971,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_d19ac7bbf2864e848089ab7ea7a844dd",
+            "parentId": "wrk_2085c12e20d9401f89e6365c083b7776",
+            "modified": 1696809984983,
+            "created": 1696809979328,
+            "url": "http://localhost:9999/products",
+            "name": "products",
+            "description": "",
+            "method": "POST",
+            "body": {},
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "Insomnia/2023.5.7"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1696809903871,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "env_28d9f45a91d917e9a6a0992018f7d95c3d5c5f41",
+            "parentId": "wrk_2085c12e20d9401f89e6365c083b7776",
+            "modified": 1696809897325,
+            "created": 1696809897325,
+            "name": "Base Environment",
+            "data": {},
+            "dataPropertyOrder": null,
+            "color": null,
+            "isPrivate": false,
+            "metaSortKey": 1696809897325,
+            "_type": "environment"
+        },
+        {
+            "_id": "jar_28d9f45a91d917e9a6a0992018f7d95c3d5c5f41",
+            "parentId": "wrk_2085c12e20d9401f89e6365c083b7776",
+            "modified": 1696809897326,
+            "created": 1696809897326,
+            "name": "Default Jar",
+            "cookies": [],
+            "_type": "cookie_jar"
+        }
+    ]
+}
