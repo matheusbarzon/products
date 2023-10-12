@@ -1,13 +1,13 @@
 {
     "_type": "export",
     "__export_format": 4,
-    "__export_date": "2023-10-09T00:07:19.132Z",
+    "__export_date": "2023-10-12T20:52:27.713Z",
     "__export_source": "insomnia.desktop.app:v2023.5.7",
     "resources": [
         {
             "_id": "req_4dfeeea379c046f887ed0ba86b46d8f9",
             "parentId": "wrk_2085c12e20d9401f89e6365c083b7776",
-            "modified": 1696809952415,
+            "modified": 1697131249161,
             "created": 1696809904021,
             "url": "http://localhost:9999/products",
             "name": "products",
@@ -22,7 +22,7 @@
                 }
             ],
             "authentication": {},
-            "metaSortKey": -1696809904021,
+            "metaSortKey": -1697130657279,
             "isPrivate": false,
             "settingStoreCookies": true,
             "settingSendCookies": true,
@@ -45,9 +45,9 @@
         {
             "_id": "req_63a73dcd875b46b4b5a4f145d5ddfd2d",
             "parentId": "wrk_2085c12e20d9401f89e6365c083b7776",
-            "modified": 1696809966940,
+            "modified": 1697142697735,
             "created": 1696809962688,
-            "url": "http://localhost:9999/products/55",
+            "url": "http://localhost:9999/products/4",
             "name": "products/{id}",
             "description": "",
             "method": "GET",
@@ -60,7 +60,7 @@
                 }
             ],
             "authentication": {},
-            "metaSortKey": -1696809903971,
+            "metaSortKey": -1697130657229,
             "isPrivate": false,
             "settingStoreCookies": true,
             "settingSendCookies": true,
@@ -73,22 +73,29 @@
         {
             "_id": "req_d19ac7bbf2864e848089ab7ea7a844dd",
             "parentId": "wrk_2085c12e20d9401f89e6365c083b7776",
-            "modified": 1696809984983,
+            "modified": 1697141351253,
             "created": 1696809979328,
             "url": "http://localhost:9999/products",
             "name": "products",
             "description": "",
             "method": "POST",
-            "body": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"nome\": \"nome produto 8\",\n\t\"gtin\": \"65468498\",\n\t\"inclusao\": \"2023-10-12 16:13:06\"\n}"
+            },
             "parameters": [],
             "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
                 {
                     "name": "User-Agent",
                     "value": "Insomnia/2023.5.7"
                 }
             ],
             "authentication": {},
-            "metaSortKey": -1696809903871,
+            "metaSortKey": -1697130657204,
             "isPrivate": false,
             "settingStoreCookies": true,
             "settingSendCookies": true,
