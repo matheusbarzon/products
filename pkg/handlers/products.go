@@ -27,3 +27,19 @@ func GetProducts(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintf(w, "Listagem de produtos!")
 }
+
+func HandleRequests(handlers *mux.Router) {
+
+	handlers.HandleFunc("/products", func(w http.ResponseWriter, r *http.Request) {
+
+		methods := map[string]func(w http.ResponseWriter, r *http.Request){}
+
+		methods[http.MethodGet] = GetProducts
+		methods[http.MethodPost] = PostProducts
+
+		methods[r.Method](w, r)
+
+	})
+
+	handlers.HandleFunc("/products/{id}", GetByIdProducts)
+}
