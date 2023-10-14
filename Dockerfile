@@ -2,12 +2,13 @@ FROM golang:1.21 as builder
 
 WORKDIR /app
 
+COPY go.* ./
 COPY ./.env ./
-COPY ./src .
+COPY ./src ./src
 COPY ./sql ./sql
 
 RUN go mod download
 
-RUN go build cmd/main.go
+RUN go build src/cmd/main.go
 
 CMD ["./main"]
