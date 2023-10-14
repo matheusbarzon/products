@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"product/pkg/database"
-	structs_products "product/pkg/structs"
+	"product/src/pkg/database"
+	structs_products "product/src/pkg/structs"
 	"strconv"
 
 	"github.com/gorilla/mux"

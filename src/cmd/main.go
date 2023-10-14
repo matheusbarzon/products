@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 
-	handlers_products "product/pkg/handlers"
+	handlers_products "product/src/pkg/handlers"
 
 	"github.com/gorilla/mux"
 )
