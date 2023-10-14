@@ -1,4 +1,4 @@
-package products
+package handlers_products
 
 import (
 	"encoding/json"
@@ -6,24 +6,16 @@ import (
 	"log"
 	"net/http"
 	"product/pkg/database"
+	structs_products "product/pkg/structs"
 	"strconv"
 
 	"github.com/gorilla/mux"
 )
 
-type Product struct {
-	Id       int64  `json:"id"`
-	Nome     string `json:"nome"`
-	Gtin     string `json:"gtin"`
-	Inclusao string `json:"inclusao"`
-}
-
-type Products []Product
-
 func postProducts(response http.ResponseWriter, request *http.Request) {
 
 	decoder := json.NewDecoder(request.Body)
-	var product Product
+	var product structs_products.Product
 	err := decoder.Decode(&product)
 	if err != nil {
 		fmt.Fprintf(response, err.Error())
@@ -89,14 +81,14 @@ func getByIdProducts(response http.ResponseWriter, request *http.Request) {
 		return
 	}
 
-	var structReturn Product
+	var structReturn structs_products.Product
 
 	id, _ := strconv.ParseInt(reqId, 10, 64)
 	nome, _ := result.GetStringByName(0, "nome")
 	gtin, _ := result.GetStringByName(0, "gtin")
 	inclusao, _ := result.GetStringByName(0, "inclusao")
 
-	structReturn = Product{
+	structReturn = structs_products.Product{
 		Id:       id,
 		Nome:     nome,
 		Gtin:     gtin,
@@ -130,7 +122,7 @@ func getProducts(response http.ResponseWriter, _ *http.Request) {
 		return
 	}
 
-	var structReturn Products
+	var structReturn structs_products.Products
 
 	for i := range result.Values {
 
@@ -139,7 +131,7 @@ func getProducts(response http.ResponseWriter, _ *http.Request) {
 		gtin, _ := result.GetStringByName(i, "gtin")
 		inclusao, _ := result.GetStringByName(i, "inclusao")
 
-		structReturn = append(structReturn, Product{
+		structReturn = append(structReturn, structs_products.Product{
 			Id:       id,
 			Nome:     nome,
 			Gtin:     gtin,
