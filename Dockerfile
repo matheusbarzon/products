@@ -4,12 +4,11 @@ WORKDIR /app
 
 COPY go.* ./
 COPY ./.env ./
+COPY ./src ./src
+COPY ./sql ./sql
 
 RUN go mod download
 
-COPY ./cmd ./cmd
-COPY ./pkg ./pkg
-
-RUN go build cmd/main.go
+RUN go build src/cmd/main.go
 
 CMD ["./main"]
