@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 
-	handlers_products "product/src/pkg/handlers"
+	products "product/src/internal/category/handlers"
 
 	"github.com/gorilla/mux"
 )
@@ -17,7 +17,7 @@ func main() {
 
 	handlers := mux.NewRouter()
 
-	handlers_products.HandleRequests(handlers)
+	products.HandleRequests(handlers)
 
 	log.Println(message)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), handlers))

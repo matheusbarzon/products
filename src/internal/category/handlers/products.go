@@ -1,11 +1,11 @@
-package handlers_products
+package products
 
 import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	models_products "product/src/pkg/models"
-	structs_products "product/src/pkg/structs"
+	entity "product/src/internal/category/entity"
+	modelProduct "product/src/internal/category/models"
 
 	"github.com/gorilla/mux"
 )
@@ -13,14 +13,14 @@ import (
 func postProducts(response http.ResponseWriter, request *http.Request) {
 
 	decoder := json.NewDecoder(request.Body)
-	var product structs_products.Product
+	var product entity.Product
 	err := decoder.Decode(&product)
 	if err != nil {
 		fmt.Fprintf(response, err.Error())
 		return
 	}
 
-	models_products.Insert(&product)
+	modelProduct.Insert(&product)
 
 	jsonReturn, _ := json.Marshal(product)
 
@@ -37,7 +37,7 @@ func getByIdProducts(response http.ResponseWriter, request *http.Request) {
 		return
 	}
 
-	var structReturn structs_products.Product = models_products.SelectById(reqId)
+	var structReturn entity.Product = modelProduct.SelectById(reqId)
 
 	jsonReturn, err := json.Marshal(structReturn)
 	if err != nil {
@@ -53,7 +53,7 @@ func getByIdProducts(response http.ResponseWriter, request *http.Request) {
 func getProducts(response http.ResponseWriter, _ *http.Request) {
 	response.WriteHeader(http.StatusOK)
 
-	var structReturn = models_products.Select()
+	var structReturn = modelProduct.Select()
 
 	jsonReturn, err := json.Marshal(structReturn)
 	if err != nil {
