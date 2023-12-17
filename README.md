@@ -10,6 +10,7 @@ _Escopo gerado por IA_
 * A API deve ser testável e usar testes unitários e de integração para garantir sua qualidade.
 
 ## Inicialização do projeto
+* Gere um arquivo `.env`, conforme arquivo de exemplo `.env.example`, o arquivo deve estar no diretório raiz do projeto 
 * Necessário docker para subir o projeto
 * Para iniciar o projeto via docker:
     * Na pasta do projeto use:
